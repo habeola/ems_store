@@ -480,8 +480,45 @@ function hideOrderSummary(){
 }
 
 
+// Toggle Menu for mobile screen
+
+let toggleNavStatus = false;
+
+ function toggleNav() {
+
+    let getSideBar = document.querySelector(".nav-sidebar")
+    let getSideBarUl = document.querySelector(".nav-sidebar ul")
+   
+     
+    if (toggleNavStatus === false) {
+        getSideBarUl.style.visibility = "visible"
+        
+
+        toggleNavStatus = true;
+    }
+     else if (toggleNavStatus === true) {
+        getSideBarUl.style.visibility = "hidden"
+        toggleNavStatus = false;
+    }
+
+}
+
+menuTogglebtn = document.getElementById('menu-icon')
+menuTogglebtn.addEventListener('click', toggleNav)
+
+
+//Hide Toggle Menu button
+function hideToggleMenu(event){
+    link = event.target
+    ulElement = link.parentElement.parentElement
+    ulElement.style.visibility = "hidden"
+
+}
+
+let getSideBarLinks = document.querySelectorAll(".nav-sidebar a")
+for (let index = 0; index < getSideBarLinks.length; index++) {
+    getSideBarLinks[index].addEventListener('click', hideToggleMenu)
+}
 
 
 
-
- 
